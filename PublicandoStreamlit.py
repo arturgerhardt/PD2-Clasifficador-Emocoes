@@ -1,10 +1,9 @@
-
 import streamlit as st
 from PIL import Image
 import tensorflow as tf
 import numpy as np
 
-from tensorflow.keras.preprocessing import image
+#from tensorflow.keras.preprocessing import image
 
 # Carregar o modelo previamente treinado
 model = tf.keras.models.load_model('./models/ceMod2.h5')
@@ -14,8 +13,8 @@ classes = ['Raiva', 'Alegria', 'Neutro', 'Triste', 'Surpresa']
 
 # Função para realizar a previsão 
 def predict_image(file_path):
-    img = image.load_img(file_path, target_size=(200, 200))
-    img = image.img_to_array(img)
+    img = tf.keras.preprocessing.image.load_img(file_path, target_size=(200, 200))
+    img = tf.keras.preprocessing.image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
     img = img / 255.0
 
