@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 *.h5 filter=lfs diff=lfs merge=lfs -text
+=======
+*.h5 filter=lfs diff=lfs merge=lfs -text
+>>>>>>> 9b747c989f6f02d48d1e5a6a89c011200a7d67e6
