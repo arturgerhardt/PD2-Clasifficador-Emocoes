@@ -173,4 +173,5 @@ dmypy.json
 # profiling data
 .prof
 
-
+#log
+/memoria
