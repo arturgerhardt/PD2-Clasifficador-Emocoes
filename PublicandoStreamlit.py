@@ -3,7 +3,7 @@ from PIL import Image
 import tensorflow as tf
 import numpy as np
 
-#from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 
 # Carregar o modelo previamente treinado
 model = tf.keras.models.load_model('./models/ceMod2.h5')
@@ -13,8 +13,8 @@ classes = ['Raiva', 'Alegria', 'Neutro', 'Triste', 'Surpresa']
 
 # Função para realizar a previsão 
 def predict_image(file_path):
-    img = tf.keras.preprocessing.image.load_img(file_path, target_size=(200, 200))
-    img = tf.keras.preprocessing.image.img_to_array(img)
+    img = image.load_img(file_path, target_size=(200, 200))
+    img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
     img = img / 255.0
 
@@ -31,12 +31,12 @@ st.write('Carregue uma imagem e receba a classificação de emoção entre Raiva
 uploaded_file = st.file_uploader("Escolha uma imagem...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    imagem = Image.open(uploaded_file)
     st.image(image, caption='Imagem carregada.', use_column_width=True)
     st.write("")
     st.write("Classificando...")
 
-    predictions, emocao = predict_image(image)
+    predictions, emocao = predict_image(imagem)
 
     st.write(f'A emoção classificada é: {emocao}')
     st.write('Resultados:')
