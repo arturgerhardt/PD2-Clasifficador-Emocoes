@@ -175,3 +175,13 @@ dmypy.json
 
 #log
 /memoria
+
+#modelos
+/models/ceMod0.h5
+/models/ceMod1.h5
+/models/ceMod2.h5
+/models/ceMod3.h5
+/models/ceMod4.h5
+/models/ceMod5.h5
+/models/ceMod6.h5
+/models/ceMod7.h5
