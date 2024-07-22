@@ -10,6 +10,7 @@ model = tf.keras.models.load_model('./models/ceMod2.h5')
 
 
 classes = ['Raiva', 'Alegria', 'Neutro', 'Triste', 'Surpresa']
+tamanho = (200, 200)
 
 # Função para realizar a previsão 
 def predict_image(imagem):
@@ -33,6 +34,7 @@ uploaded_file = st.file_uploader("Escolha uma imagem...", type=["jpg", "jpeg", "
 if uploaded_file is not None:
     imagem = Image.open(uploaded_file)
     st.image(imagem, caption='Imagem carregada.', use_column_width=True)
+    imagem = imagem.resize(tamanho)
     st.write("")
 
     predictions, emocao = predict_image(imagem)
